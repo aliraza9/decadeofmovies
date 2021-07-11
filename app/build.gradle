@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.ali.decadeofmovies"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        buildConfigField 'String', 'FLICKER_API_KEY', "\"07afd9d0699f55361456f41b7e102a81\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+     implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    //Fragment KTX
+    implementation 'androidx.fragment:fragment-ktx:1.3.4'
+    implementation 'androidx.core:core-ktx:1.5.0'
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    //Navigation Component
+    def nav_version = "2.3.4"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //DI
+    def koin_version = "2.2.1"
+    //Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    //Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:$koin_version"
+    //Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    //Koin Test
+    testImplementation "org.koin:koin-test:$koin_version"
+    //Support for Java 8 features
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    //RxAndroid
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    //JUnit 4 framework
+    testImplementation 'junit:junit:4.13.2'
+    //Components from androidx.arch for unit tests
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    //Mockito
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+    //Espresso
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:core:1.3.0'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:3.3.0"
+    implementation "androidx.test.espresso:espresso-idling-resource:3.3.0"
+
+    //Components from androidx.arch for unit tests
+    implementation 'com.google.code.gson:gson:2.8.6'
+    //Mockito Kotlin
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+}

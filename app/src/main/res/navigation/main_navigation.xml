@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.ali.decadeofmovies.ui.fragments.MoviesFragment"
+        android:label="MoviesFragment"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+             />
+     </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.ali.decadeofmovies.ui.fragments.detail.MovieDetailsFragment"
+        android:label="MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_detail"
+        >
+        <argument
+            android:name="movie"
+            app:argType="com.ali.decadeofmovies.models.Movie" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment"
+            />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
+</navigation>

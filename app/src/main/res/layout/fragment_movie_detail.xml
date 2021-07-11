@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:padding="@dimen/single_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+
+        <com.ali.decadeofmovies.ui.widgets.textviews.BoldTextView
+            android:id="@+id/movieNameTV"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/half_margin"
+            app:layout_constraintEnd_toStartOf="@+id/txtRating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
+
+        <com.ali.decadeofmovies.ui.widgets.textviews.RegularTextView
+            android:id="@+id/movieYearTV"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:textSize="@dimen/standard_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/txtRating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieNameTV"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/txtRating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:drawablePadding="5dp"
+            android:numStars="5"
+            android:progressTint="@color/rating_star_color"
+            app:layout_constraintBottom_toBottomOf="@id/movieNameTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/movieNameTV" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupGenres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieYearTV">
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <View
+            android:id="@+id/greyView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/half_margin"
+            android:background="@color/divider_grey"
+            app:layout_constraintBottom_toBottomOf="@id/txtActors"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupGenres" />
+
+        <com.ali.decadeofmovies.ui.widgets.textviews.BoldTextView
+            android:id="@+id/lblActors"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:paddingTop="@dimen/single_margin"
+            android:text="@string/cast"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/greyView" />
+
+        <com.ali.decadeofmovies.ui.widgets.textviews.RegularTextView
+            android:id="@+id/txtActors"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/single_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:layout_marginBottom="@dimen/single_margin"
+            android:paddingBottom="@dimen/double_margin"
+            android:textColor="@color/brownish_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblActors"
+            tools:text="Abc ABC ABAC ABAC" />
+
+        <com.ali.decadeofmovies.ui.widgets.textviews.BoldTextView
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/single_margin"
+            android:text="@string/pictures"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/txtActors" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_marginBottom="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topLayout"
+            app:spanCount="2"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_image" />
+
+        <include
+            android:id="@+id/emptyLayout"
+            layout="@layout/empty_layout"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="@id/recyclerPhotos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/recyclerPhotos" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
