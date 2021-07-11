@@ -1,8 +1,8 @@
 # Decade of Movies App
 
 <p align="center">
-  <img alt='Screenshot 1' src="assets/screenshot_1.png" width="40%"/>
-  <img alt='Screenshot 2' src="assets/screenshot_2.png" width="40%"/>
+  <img alt='Screenshot 1' src="device-2021-07-11-140238.png" width="40%"/>
+  <img alt='Screenshot 2' src="device-2021-07-11-140211.png" width="40%"/>
   <br/>
 </p>
 
