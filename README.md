@@ -1,6 +1,6 @@
 # Decade of Movies App
 
-Demo Application to understand the architecture of MVVM App with Unit tests
+Demo Application for movies of last decades.
 
 ## Build Instructions ##
 
